@@ -1,9 +1,10 @@
-var milliseconds;
+var milliseconds;;
+var h;
 
 function currentTime(){
 
 	var d = new Date();
-	var h = d.getHours();
+	 h = d.getHours();
 	var m = d.getMinutes();
 	 milliseconds = h * 36e5 + m * 6e4;
 }
@@ -28,11 +29,16 @@ document.getElementById("save").addEventListener("click", function(){
 	    var x = document.getElementById("timeonly").value;
     document.getElementById("demo").innerHTML = x;
     var hours = x.substring(0,2);
+    var intihours = parseInt(hours);
+    console.log(intihours);
       document.getElementById("hours").innerHTML = hours;
     var min = x.substring(3,5);
       document.getElementById("min").innerHTML = min;
+      var notify = Math.abs(h - intihours);
+      console.log(notify);
+      alert("Alarm set for "+notify+"hours")
 
-    var hrmilli = 36e5 * parseInt(hours);
+    var hrmilli = 36e5 * intihours;
 
     var minmilli = 6e4 * parseInt(min);
 
