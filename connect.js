@@ -43,7 +43,7 @@ var data = {
 labels: ["7:00","8:00","9:00","10:00","11:00"],
 datasets: [
     {
-        label: "My First dataset",
+        label: "Deflection",
         fill: false,
         lineTension: 0.1,
         backgroundColor: "rgba(75,192,192,0.4)",
@@ -63,7 +63,32 @@ datasets: [
         pointHitRadius: 10,
         data: [65,32,42,55,65],
     }
-]
+],
+scales: {
+    xAxes: [{
+      type: "time",
+      time: {
+        unit: 'hour',
+        unitStepSize: 0.5,
+        round: 'hour',
+        tooltipFormat: "h:mm:ss a",
+        displayFormats: {
+          hour: 'MMM D, h:mm A'
+        }
+      }
+    }],
+    yAxes: [{
+      gridLines: {
+        color: "black",
+        borderDash: [2, 5],
+      },
+      scaleLabel: {
+        display: true,
+        labelString: "Speed in Miles per Hour",
+        fontColor: "green"
+      }
+    }]
+  }
 };
 
 
@@ -81,7 +106,9 @@ options:option
 client.onMessageArrived = function (message) {
     //Do something with the push message you received
      // $("#messages").append(message.payloadString +" ");
+     currentTime();
            intmpudata = parseInt(message.payloadString);
-           addData(myLineChart,"13",intmpudata);
+           var xaxisstring = m.toString();
+           addData(myLineChart,xaxisstring,intmpudata);
 document.getElementById("messages").innerHTML= message.payloadString;
 };

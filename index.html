@@ -44,15 +44,17 @@
 
       <button id="cancle" class="btn btn-primary " onclick="canlcelAll()">Cancle</button>
     <button onclick="publish(hours,'presence',2);" id="save" class="btn btn-primary ">Save</button>
+    <button   class="btn btn-primary" id="massage">Massage</button>
+    
     <p id="demo"></p>
             <p id="hours"></p>
             <p id="min"></p>
             <p id="milliscnd"></p>
 
 
-    <button onclick="client.subscribe('chart/topic', {qos: 2}); alert('Subscribed');" class="btn btn-primary" id="suscribe">2. Subscribe</button>
+    <button onclick="client.subscribe('chart/topic', {qos: 2}); alert('Subscribed');" class="btn btn-primary" id="suscribe">Subscribe</button>
     <!-- <button>3. Publish</button> -->
-    <button onclick="client.disconnect();" class="btn btn-primary ">4. Disconnect</button>
+    <button onclick="client.disconnect();" class="btn btn-primary">Disconnect</button>
     <p id="messages"></p>
 
 
